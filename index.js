@@ -87,7 +87,7 @@ app.post('/ussd', (req, res) => {
     // Determine next action based on user input
     if (userInput.length === 1 && userInput[0] === '') {
         // First level menu: Language selection
-        response = `CON Welcome to RP AMATORA portal\n`;
+        response = `CON Welcome to RP AMATORA\n`;
         response += `1. English\n`;
         response += `2. Kinyarwanda`;
     } else if (userInput.length === 1 && userInput[0] !== '') {
@@ -97,7 +97,7 @@ app.post('/ussd', (req, res) => {
             userLanguages[phoneNumber] = userInput[0] === '1' ? 'en' : 'rw';
             response = userLanguages[phoneNumber] === 'en' ? 
                 `CON Please enter your name:` : 
-                `CON Uzuza uwmirondoro: \n Amazina yawe:`;
+                `CON Uzuza umwirondoro: \n Amazina yawe:`;
         } else {
             // Invalid language selection
             response = `END Invalid selection. Please try again.` + 
